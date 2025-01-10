@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Store - Bluelock</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'player': 'var(--player-color)',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="/assets/styles/styles.css">
+</head>
+<body class="bg-black text-white min-h-screen overflow-x-hidden flex flex-col">
+    <!-- Background Effect -->
+    <div class="fixed inset-0 z-0">
+        <!-- Gradiente principal -->
+        <div class="absolute inset-0 bg-gradient-to-br from-player via-black to-black opacity-50"></div>
+        <!-- Efectos de luz dinámicos -->
+        <div class="absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-player/30 to-transparent"></div>
+        <div class="absolute bottom-0 right-0 w-[60rem] h-[60rem] bg-player/20 blur-3xl rounded-full animate-pulse"></div>
+        <div class="absolute top-1/4 left-1/4 w-[40rem] h-[40rem] bg-player/10 blur-3xl rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+        <!-- Patrón de fondo animado -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background: 
+                radial-gradient(circle at 50% 50%, var(--player-color) 0%, transparent 10%) 0 0/50px 50px,
+                radial-gradient(circle at 0% 100%, var(--player-color) 0%, transparent 15%) 0 0/70px 70px;
+                animation: backgroundMove 20s linear infinite;">
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Banner -->
+    <div class="fixed top-0 left-0 right-0 bg-black/50 backdrop-blur-md border-b border-player/30 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
+                <!-- Logo y nombre -->
+                <div class="flex items-center space-x-2 flex-wrap justify-center md:justify-start">
+                    <img src="/assets/images/logo.png" alt="Logo" class="h-8 w-auto">
+                    <span class="hidden md:inline text-player/50">|</span>
+                    <span class="text-gray-300 text-sm md:text-base">Proyecto de Portafolio por</span>
+                    <span class="text-player font-semibold">Ricki</span>
+                    <span class="hidden md:inline text-player/50">|</span>
+                    <span class="text-gray-300 text-sm md:text-base">Fullstack Developer</span>
+                </div>
+                <!-- Links y tecnologías -->
+                <div class="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+                    <div class="flex items-center space-x-4">
+                        <a href="https://github.com/RickiPy" target="_blank" class="text-gray-400 hover:text-player transition-all duration-300 hover:scale-110 text-sm md:text-base">
+                            <i class="fab fa-github text-lg md:text-xl"></i>
+                            <span class="ml-1">GITHUB</span>
+                        </a>
+                        <a href="https://linkedin.com/in/ricardo-vargas-barral-0a3891289" target="_blank" class="text-gray-400 hover:text-player transition-all duration-300 hover:scale-110 text-sm md:text-base">
+                            <i class="fab fa-linkedin text-lg md:text-xl"></i>
+                            <span class="ml-1">LINKEDIN</span>
+                        </a>
+                        <a href="https://ricki.dev" target="_blank" class="text-gray-400 hover:text-player transition-all duration-300 hover:scale-110 text-sm md:text-base">
+                            <i class="fas fa-globe text-lg md:text-xl"></i>
+                            <span class="ml-1">PORTFOLIO</span>
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-2 flex-wrap justify-center">
+                        <span class="px-2 md:px-3 py-1 bg-player/20 text-player text-xs md:text-sm rounded-full border border-player/30">HTML</span>
+                        <span class="px-2 md:px-3 py-1 bg-player/20 text-player text-xs md:text-sm rounded-full border border-player/30">Tailwind</span>
+                        <span class="px-2 md:px-3 py-1 bg-player/20 text-player text-xs md:text-sm rounded-full border border-player/30">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Spacer para el banner fijo -->
+    <div class="h-28 md:h-14"></div>
+
+    <!-- Header with Cart -->
+    <header class="w-full py-8 md:py-16 relative z-10">
+        <!-- Back Button -->
+        <a href="/index.html" class="absolute top-8 left-4 md:left-8 text-player hover:text-white transition-all duration-300 hover:scale-110 group">
+            <div class="relative">
+                <div class="absolute inset-0 bg-player/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <svg class="w-8 md:w-10 h-8 md:h-10 relative" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+            </div>
+        </a>
+
+        <!-- Cart Icon -->
+        <div class="absolute top-8 right-4 md:right-8 cursor-pointer">
+            <div class="relative group">
+                <div class="absolute inset-0 bg-player/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <svg class="w-8 md:w-10 h-8 md:h-10 text-white hover:text-player transition-colors relative cart-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
+                <span class="cart-count absolute -top-2 -right-2 bg-player text-xs text-black font-bold w-5 md:w-6 h-5 md:h-6 rounded-full flex items-center justify-center border-2 border-black">0</span>
+            </div>
+            <!-- Cart Preview -->
+            <div class="cart-preview hidden absolute right-0 mt-4 w-[calc(100vw-2rem)] md:w-80 max-h-[60vh] md:max-h-[80vh] overflow-y-auto bg-black/95 backdrop-blur-xl border border-player/30 rounded-2xl shadow-2xl shadow-player/20 p-4 transform transition-all duration-300 scale-95">
+                <p class="text-center text-player/70">Carrito vacío</p>
+            </div>
+        </div>
+
+        <!-- Store Title -->
+        <div class="text-center relative px-4">
+            <!-- Efectos de luz detrás del título -->
+            <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-72 md:w-96 h-72 md:h-96">
+                <div class="absolute inset-0 bg-player/20 rounded-full blur-[100px] animate-pulse"></div>
+                <div class="absolute inset-10 bg-player/10 rounded-full blur-[50px] animate-pulse" style="animation-delay: 0.5s;"></div>
+            </div>
+            <h1 class="store-title text-5xl md:text-8xl font-bold mb-4 relative bg-clip-text text-transparent bg-gradient-to-b from-white to-player"></h1>
+            <p class="text-player/70 text-xl md:text-2xl mb-6 font-light tracking-wider">Colección Exclusiva</p>
+            <div class="relative">
+                <div class="absolute inset-0 bg-player/20 blur-md"></div>
+                <div class="h-1 w-40 md:w-60 bg-gradient-to-r from-transparent via-player to-transparent mx-auto relative"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 py-8 md:py-16 px-4 md:px-8 relative z-10">
+        <div class="container mx-auto">
+            <!-- Grid de productos -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8">
+                <!-- Tarjeta de Equipación -->
+                <div class="group relative">
+                    <!-- Efecto de brillo de fondo -->
+                    <div class="absolute -inset-1 bg-gradient-to-r from-player via-white to-player opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500"></div>
+                    
+                    <div class="relative bg-black/40 backdrop-blur-xl rounded-2xl overflow-hidden border border-player/30 transition-all duration-500 group-hover:border-player/60 group-hover:-translate-y-2">
+                        <div class="aspect-square relative overflow-hidden">
+                            <img src="" alt="" class="product-image w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60"></div>
+                            <div class="absolute top-4 right-4 bg-player/20 backdrop-blur-md text-player px-4 py-1 rounded-full text-sm font-semibold border border-player/30">
+                                Oficial 2024
+                            </div>
+                        </div>
+                        <div class="p-6 bg-gradient-to-b from-player/5 to-black/60 h-[200px] flex flex-col justify-between relative">
+                            <!-- Efecto de brillo en hover -->
+                            <div class="absolute inset-0 bg-gradient-to-b from-player/5 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+                            
+                            <div class="relative">
+                                <h3 class="text-2xl font-bold text-player mb-2 group-hover:text-white transition-colors duration-300">Equipación Pro</h3>
+                                <p class="text-gray-400 line-clamp-2 group-hover:text-gray-300 transition-colors duration-300">Equipación oficial de alta calidad, diseñada para un rendimiento óptimo.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-4 relative">
+                                <div class="flex flex-col">
+                                    <span class="text-sm text-player/70">Precio</span>
+                                    <span class="text-3xl font-bold text-white">59.99€</span>
+                                </div>
+                                <button class="add-to-cart-btn bg-player/20 hover:bg-player text-player hover:text-black border border-player/40 hover:border-player px-6 py-2.5 rounded-xl transition-all duration-300 font-semibold relative overflow-hidden group/btn"
+                                    data-name="Equipación Pro"
+                                    data-price="59.99"
+                                    data-description="Equipación oficial de alta calidad, diseñada para un rendimiento óptimo.">
+                                    <span class="relative z-10">Añadir al Carrito</span>
+                                    <div class="absolute inset-0 bg-player transform scale-x-0 group-hover/btn:scale-x-100 transition-transform duration-500 origin-left"></div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjetas de Prueba -->
+                <div class="group relative">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-player via-white to-player opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500"></div>
+                    
+                    <div class="relative bg-black/40 backdrop-blur-xl rounded-2xl overflow-hidden border border-player/30 transition-all duration-500 group-hover:border-player/60 group-hover:-translate-y-2">
+                        <div class="aspect-square relative overflow-hidden bg-gradient-to-br from-player/20 to-black flex items-center justify-center">
+                            <span class="text-player text-xl group-hover:scale-110 transition-transform duration-300">Imagen de Prueba</span>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60"></div>
+                        </div>
+                        <div class="p-6 bg-gradient-to-b from-player/5 to-black/60 h-[200px] flex flex-col justify-between relative">
+                            <div class="absolute inset-0 bg-gradient-to-b from-player/5 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+                            
+                            <div class="relative">
+                                <h3 class="text-2xl font-bold text-player mb-2 group-hover:text-white transition-colors duration-300">Tarjeta de Prueba</h3>
+                                <p class="text-gray-400 line-clamp-2 group-hover:text-gray-300 transition-colors duration-300">Descripción del producto de ejemplo.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-4 relative">
+                                <div class="flex flex-col">
+                                    <span class="text-sm text-player/70">Precio</span>
+                                    <span class="text-3xl font-bold text-white">49.99€</span>
+                                </div>
+                                <button class="add-to-cart-btn bg-player/20 hover:bg-player text-player hover:text-black border border-player/40 hover:border-player px-6 py-2.5 rounded-xl transition-all duration-300 font-semibold relative overflow-hidden group/btn"
+                                    data-name="Tarjeta de Prueba 1"
+                                    data-price="49.99"
+                                    data-description="Descripción del producto de ejemplo.">
+                                    <span class="relative z-10">Añadir al Carrito</span>
+                                    <div class="absolute inset-0 bg-player transform scale-x-0 group-hover/btn:scale-x-100 transition-transform duration-500 origin-left"></div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-player via-white to-player opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500"></div>
+                    
+                    <div class="relative bg-black/40 backdrop-blur-xl rounded-2xl overflow-hidden border border-player/30 transition-all duration-500 group-hover:border-player/60 group-hover:-translate-y-2">
+                        <div class="aspect-square relative overflow-hidden bg-gradient-to-br from-player/20 to-black flex items-center justify-center">
+                            <span class="text-player text-xl group-hover:scale-110 transition-transform duration-300">Imagen de Prueba</span>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60"></div>
+                        </div>
+                        <div class="p-6 bg-gradient-to-b from-player/5 to-black/60 h-[200px] flex flex-col justify-between relative">
+                            <div class="absolute inset-0 bg-gradient-to-b from-player/5 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+                            
+                            <div class="relative">
+                                <h3 class="text-2xl font-bold text-player mb-2 group-hover:text-white transition-colors duration-300">Tarjeta de Prueba</h3>
+                                <p class="text-gray-400 line-clamp-2 group-hover:text-gray-300 transition-colors duration-300">Descripción del producto de ejemplo.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-4 relative">
+                                <div class="flex flex-col">
+                                    <span class="text-sm text-player/70">Precio</span>
+                                    <span class="text-3xl font-bold text-white">39.99€</span>
+                                </div>
+                                <button class="add-to-cart-btn bg-player/20 hover:bg-player text-player hover:text-black border border-player/40 hover:border-player px-6 py-2.5 rounded-xl transition-all duration-300 font-semibold relative overflow-hidden group/btn"
+                                    data-name="Tarjeta de Prueba 2"
+                                    data-price="39.99"
+                                    data-description="Descripción del producto de ejemplo.">
+                                    <span class="relative z-10">Añadir al Carrito</span>
+                                    <div class="absolute inset-0 bg-player transform scale-x-0 group-hover/btn:scale-x-100 transition-transform duration-500 origin-left"></div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-player via-white to-player opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500"></div>
+                    
+                    <div class="relative bg-black/40 backdrop-blur-xl rounded-2xl overflow-hidden border border-player/30 transition-all duration-500 group-hover:border-player/60 group-hover:-translate-y-2">
+                        <div class="aspect-square relative overflow-hidden bg-gradient-to-br from-player/20 to-black flex items-center justify-center">
+                            <span class="text-player text-xl group-hover:scale-110 transition-transform duration-300">Imagen de Prueba</span>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60"></div>
+                        </div>
+                        <div class="p-6 bg-gradient-to-b from-player/5 to-black/60 h-[200px] flex flex-col justify-between relative">
+                            <div class="absolute inset-0 bg-gradient-to-b from-player/5 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+                            
+                            <div class="relative">
+                                <h3 class="text-2xl font-bold text-player mb-2 group-hover:text-white transition-colors duration-300">Tarjeta de Prueba</h3>
+                                <p class="text-gray-400 line-clamp-2 group-hover:text-gray-300 transition-colors duration-300">Descripción del producto de ejemplo.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-4 relative">
+                                <div class="flex flex-col">
+                                    <span class="text-sm text-player/70">Precio</span>
+                                    <span class="text-3xl font-bold text-white">29.99€</span>
+                                </div>
+                                <button class="add-to-cart-btn bg-player/20 hover:bg-player text-player hover:text-black border border-player/40 hover:border-player px-6 py-2.5 rounded-xl transition-all duration-300 font-semibold relative overflow-hidden group/btn"
+                                    data-name="Tarjeta de Prueba 3"
+                                    data-price="29.99"
+                                    data-description="Descripción del producto de ejemplo.">
+                                    <span class="relative z-10">Añadir al Carrito</span>
+                                    <div class="absolute inset-0 bg-player transform scale-x-0 group-hover/btn:scale-x-100 transition-transform duration-500 origin-left"></div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black/80 backdrop-blur-sm border-t border-player/20 py-8 relative z-10">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-player/50">© 2024 Bluelock Store. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <style>
+        @keyframes backgroundMove {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 100px 100px;
+            }
+        }
+    </style>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html> 

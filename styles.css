@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000;
+    background-image: radial-gradient(circle at center, #111 0%, #000 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.character-container {
+    width: 350px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stats-container {
+    width: 400px;
+    margin: 0 2rem;
+}
+
+/* Ajustar el responsive */
+@media (max-width: 1280px) {
+    .container {
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .character-container {
+        width: 300px;
+        height: 450px;
+    }
+
+    .stats-container {
+        width: 350px;
+        margin: 0 1rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    .character-container {
+        width: 280px;
+        height: 400px;
+    }
+
+    .stats-container {
+        width: 100%;
+        margin: 2rem 0;
+    }
+}
+
+.green-gradient {
+    background: linear-gradient(to top, #A0FEFE 0%, transparent 100%);
+    box-shadow: 0 0 30px rgba(160, 254, 254, 0.2);
+}
+
+.red-gradient {
+    background: linear-gradient(to top, #FD7CE1 0%, transparent 100%);
+    box-shadow: 0 0 30px rgba(253, 124, 225, 0.2);
+}
+
+/* Efecto hover en personajes */
+.character-hover {
+    transition: all 0.3s ease;
+}
+
+.character-hover:hover {
+    transform: translateY(-10px);
+}
+
+.character-hover:hover .green-gradient {
+    box-shadow: 0 0 40px rgba(160, 254, 254, 0.4);
+}
+
+.character-hover:hover .red-gradient {
+    box-shadow: 0 0 40px rgba(253, 124, 225, 0.4);
+}
+
+/* Animaciones para los personajes */
+.character-left {
+    position: relative;
+    transform: translateX(-100vw);
+    animation: slideInLeft 1.5s ease forwards;
+}
+
+.character-right {
+    position: relative;
+    transform: translateX(100vw);
+    animation: slideInRight 1.5s ease forwards;
+}
+
+@keyframes slideInLeft {
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Título 3D y efectos */
+.title-3d {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+}
+
+.title-3d span {
+    display: inline-block;
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+    text-shadow: 
+        0 0 20px rgba(0,0,0,0.5),
+        1px 1px 1px rgba(0,0,0,0.5),
+        2px 2px 0px rgba(0,0,0,0.3);
+}
+
+.title-3d:hover span {
+    transform: translateY(-5px);
+}
+
+/* Línea brillante */
+.glow-line {
+    height: 2px;
+    border-radius: 2px;
+    animation: glowPulse 2s infinite;
+}
+
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 20px rgba(160, 254, 254, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(253, 124, 225, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(160, 254, 254, 0.5);
+    }
+}
+
+/* Estilos para las stats */
+.stats-container {
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.stat-label {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.5rem;
+}
+
+.stat-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    padding: 0.5rem;
+    grid-column: 2;
+}
+
+.stat-name {
+    color: #ffffff;
+    font-weight: 500;
+    padding: 0.5rem;
+}
+
+/* Animación para las stats */
+.stats-container {
+    animation: fadeIn 1s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hacer los números más grandes */
+.stats-container .text-accent,
+.stats-container .text-accent-blue {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Efecto hover en las filas de stats */
+.stats-container .grid > div {
+    transition: all 0.3s ease;
+}
+
+.stats-container .grid > div:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos para los nombres de personajes */
+.character-name {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 20;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.character-name .first-name {
+    display: block;
+    font-size: 2.5rem;
+}
+
+.character-name .last-name {
+    display: block;
+    font-size: 2rem;
+    opacity: 0.9;
+}
+
+/* Nuevos estilos para las stats */
+.hexagon-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.stat-group {
+    position: relative;
+}
+
+.stat-bars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.stat-name {
+    width: 100px;
+    text-align: center;
+    font-weight: 500;
+    color: white;
+}
+
+.stat-bar {
+    height: 12px;
+    width: 150px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+}
+
+.stat-bar.left {
+    transform-origin: right;
+}
+
+.stat-bar.right {
+    transform-origin: left;
+}
+
+.bar-fill {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: var(--value);
+    transition: width 1s ease;
+}
+
+.stat-bar.left .bar-fill {
+    right: 0;
+    animation: fillLeft 1.5s ease forwards;
+}
+
+.stat-bar.right .bar-fill {
+    left: 0;
+    animation: fillRight 1.5s ease forwards;
+}
+
+@keyframes fillLeft {
+    from { width: 0; }
+    to { width: var(--value); }
+}
+
+@keyframes fillRight {
+    from { width: 0; }
+    to { width: var(--value); }
+}
+
+/* Efecto hover en las barras */
+.stat-group:hover .stat-bar .bar-fill {
+    filter: brightness(1.2);
+    box-shadow: 0 0 10px currentColor;
+}
+
+.stat-group:hover .stat-name {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .stat-bar {
+        width: 100px;
+    }
+
+    .stat-name {
+        width: 80px;
+        font-size: 0.9rem;
+    }
+
+    .character-name .first-name {
+        font-size: 2rem;
+    }
+
+    .character-name .last-name {
+        font-size: 1.5rem;
+    }
+}
+
+/* Modal Styles */
+#jerseyModal {
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+#jerseyModal.modal-active {
+    opacity: 1;
+}
+
+.jersey-display {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.jersey-display:hover {
+    transform: scale(1.05);
+}
+
+/* Size Button Styles */
+.size-btn {
+    transition: all 0.3s ease;
+}
+
+.size-btn:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.size-btn.selected-size {
+    border-color: currentColor;
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* Add to Cart Button Hover */
+#addToCartBtn:hover {
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+/* Jersey Image Container */
+#jerseyImage {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+#jerseyImage:hover {
+    box-shadow: 0 0 30px rgba(255,255,255,0.1);
+} 

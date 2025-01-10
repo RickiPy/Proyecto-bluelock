@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bluelock Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'accent': '#FD7CE1',
+                        'accent-blue': '#A0FEFE',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="/assets/styles/styles.css">
+</head>
+<body class="bg-black text-white min-h-screen overflow-x-hidden flex flex-col">
+    <!-- Project Banner -->
+    <div class="fixed top-0 left-0 right-0 bg-black/50 backdrop-blur-md border-b border-accent-blue/30 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
+                <!-- Logo y nombre -->
+                <div class="flex items-center space-x-2 flex-wrap justify-center md:justify-start">
+                    <img src="/assets/images/logo.png" alt="Logo" class="h-8 w-auto">
+                    <span class="hidden md:inline text-accent-blue/50">|</span>
+                    <span class="text-gray-300 text-sm md:text-base">Proyecto de Portafolio por</span>
+                    <span class="text-accent-blue font-semibold">Ricki</span>
+                    <span class="hidden md:inline text-accent-blue/50">|</span>
+                    <span class="text-gray-300 text-sm md:text-base">Fullstack Developer</span>
+                </div>
+                <!-- Links y tecnologías -->
+                <div class="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+                    <div class="flex items-center space-x-4">
+                        <a href="https://github.com/RickiPy" target="_blank" class="text-gray-400 hover:text-accent-blue transition-all duration-300 hover:scale-110 text-sm md:text-base">
+                            <i class="fab fa-github text-lg md:text-xl"></i>
+                            <span class="ml-1">GITHUB</span>
+                        </a>
+                        <a href="https://linkedin.com/in/ricardo-vargas-barral-0a3891289" target="_blank" class="text-gray-400 hover:text-accent-blue transition-all duration-300 hover:scale-110 text-sm md:text-base">
+                            <i class="fab fa-linkedin text-lg md:text-xl"></i>
+                            <span class="ml-1">LINKEDIN</span>
+                        </a>
+                        <a href="https://ricki.dev" target="_blank" class="text-gray-400 hover:text-accent-blue transition-all duration-300 hover:scale-110 text-sm md:text-base">
+                            <i class="fas fa-globe text-lg md:text-xl"></i>
+                            <span class="ml-1">PORTFOLIO</span>
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-2 flex-wrap justify-center">
+                        <span class="px-2 md:px-3 py-1 bg-accent-blue/20 text-accent-blue text-xs md:text-sm rounded-full border border-accent-blue/30">HTML</span>
+                        <span class="px-2 md:px-3 py-1 bg-accent-blue/20 text-accent-blue text-xs md:text-sm rounded-full border border-accent-blue/30">Tailwind</span>
+                        <span class="px-2 md:px-3 py-1 bg-accent-blue/20 text-accent-blue text-xs md:text-sm rounded-full border border-accent-blue/30">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Spacer para el banner fijo -->
+    <div class="h-28 md:h-14"></div>
+
+    <!-- Header with Cart -->
+    <header class="w-full py-8 relative">
+        <!-- Cart Icon -->
+        <div class="absolute top-8 right-4 md:right-8 cursor-pointer">
+            <div class="relative group">
+                <div class="absolute inset-0 bg-accent-blue/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <svg class="w-8 md:w-10 h-8 md:h-10 text-white hover:text-accent-blue transition-colors relative cart-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
+                <span class="cart-count absolute -top-2 -right-2 bg-accent text-xs text-black font-bold w-5 md:w-6 h-5 md:h-6 rounded-full flex items-center justify-center border-2 border-black">0</span>
+            </div>
+            <!-- Cart Preview -->
+            <div class="cart-preview hidden absolute right-0 mt-4 w-[calc(100vw-2rem)] md:w-80 max-h-[60vh] md:max-h-[80vh] overflow-y-auto bg-black/95 backdrop-blur-xl border border-accent-blue/30 rounded-2xl shadow-2xl shadow-accent-blue/20 p-4 transform transition-all duration-300 scale-95">
+                <p class="text-center text-accent-blue/70">Carrito vacío</p>
+            </div>
+        </div>
+
+        <!-- Title -->
+        <div class="text-center">
+            <h1 class="title-3d text-5xl md:text-8xl font-bold">
+                <span class="text-accent-blue">BLUE</span><span class="text-accent">LOCK</span>
+            </h1>
+            <span class="text-xl md:text-2xl text-gray-400 tracking-widest">STORE</span>
+            <div class="h-1 w-32 md:w-48 bg-gradient-to-r from-accent-blue to-accent mx-auto mt-4 glow-line"></div>
+        </div>
+    </header>
+
+    <div class="text-center mb-8 md:mb-16 px-4">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">¿Cuál es tu personaje favorito?</h2>
+        <p class="text-gray-400 text-base md:text-lg">Selecciona tu jugador favorito para descubrir su colección exclusiva</p>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1 py-8 md:py-16 px-4 md:px-8 relative z-10">
+        <div class="container mx-auto">
+            <!-- Grid de productos -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Rin Card -->
+                <div class="character-hover cursor-pointer relative group">
+                    <a href="/player-store.html?player=rin" class="block">
+                        <div class="character-container green-gradient relative rounded-xl">
+                            <img src="/assets/images/Rin Itoshi.png" alt="Rin Itoshi" class="h-[400px] w-full object-contain relative z-10">
+                            <div class="character-name text-accent-blue">
+                                <span class="first-name">Rin</span>
+                                <span class="last-name">Itoshi</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Sae Card -->
+                <div class="character-hover cursor-pointer relative group">
+                    <a href="/player-store.html?player=sae" class="block">
+                        <div class="character-container red-gradient relative rounded-xl">
+                            <img src="/assets/images/Sae Itoshi.png" alt="Sae Itoshi" class="h-[400px] w-full object-contain relative z-10">
+                            <div class="character-name text-accent">
+                                <span class="first-name">Sae</span>
+                                <span class="last-name">Itoshi</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Nagi Card -->
+                <div class="character-hover cursor-pointer relative group">
+                    <a href="/player-store.html?player=nagi" class="block">
+                        <div class="character-container purple-gradient relative rounded-xl">
+                            <img src="/assets/images/Nagi.png" alt="Nagi Seishiro" class="h-[400px] w-full object-contain relative z-10">
+                            <div class="character-name" style="color: #9485C8">
+                                <span class="first-name">Nagi</span>
+                                <span class="last-name">Seishiro</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Isagi Card -->
+                <div class="character-hover cursor-pointer relative group">
+                    <a href="/player-store.html?player=isagi" class="block">
+                        <div class="character-container green-light-gradient relative rounded-xl">
+                            <img src="/assets/images/Isagi Yoichi.png" alt="Yoichi Isagi" class="h-[400px] w-full object-contain relative z-10">
+                            <div class="character-name" style="color: #48D437">
+                                <span class="first-name">Yoichi</span>
+                                <span class="last-name">Isagi</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black/90 border-t border-player/20 py-8">
+        <div class="container mx-auto px-4 text-center text-gray-400">
+            <p>© 2024 Bluelock Store. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html> 
