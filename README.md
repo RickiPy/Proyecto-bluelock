@@ -64,7 +64,7 @@ git clone https://github.com/RickiPy/blue-lock-store.git
 2. Abre `index.html` en tu navegador
 
 ## 🔗 Enlaces
-- [Portfolio](https://ricki.dev)
+- [Portfolio](https://ricki-cv.vercel.app/)
 - [LinkedIn](https://linkedin.com/in/ricardo-vargas-barral-0a3891289)
 - [GitHub](https://github.com/RickiPy)
 
